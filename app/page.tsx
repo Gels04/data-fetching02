@@ -10,6 +10,7 @@ export default async function Home() {
   const usersData: Promise<User[]> = getAllUsers()
 
   const users = await usersData;
+  console.log(users)
 
   const content = users.map((user, id) => {
     return(
