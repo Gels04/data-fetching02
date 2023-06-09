@@ -11,27 +11,27 @@ export default async function Home() {
 
   const users = await usersData;
 
-  const content = users.map((user) => {
+  const content = users.map((user, id) => {
     return(
     <>
-      <Link href={`/${user.id}`} key={user.id} style={{fontSize: "25px"}}>{user.name}</Link>
+      <Link href={`/${user.id}`} key={id} style={{fontSize: "25px"}}>{user.name}</Link>
       <br />
     </>
     )
   })
 
-  function filter(e: ChangeEvent<HTMLInputElement>) {
-    // console.log(e.target.value);
-    const value = e.target.value.toLocaleLowerCase();
-    users.forEach((user) => {
-      const isVisible = user.name.toLocaleLowerCase().includes(value);
-      if(isVisible) console.log(user);
-    })
-  }
+  // function filter(e: ChangeEvent<HTMLInputElement>) {
+  //   // console.log(e.target.value);
+  //   const value = e.target.value.toLocaleLowerCase();
+  //   users.forEach((user) => {
+  //     const isVisible = user.name.toLocaleLowerCase().includes(value);
+  //     if(isVisible) console.log(user);
+  //   })
+  // }
 
   return (
     <>
-    Search Bar <input type="text" onChange={filter}/>
+    <Link href={"/search"}>Search</Link>
     <br />
     {content}
     </>
